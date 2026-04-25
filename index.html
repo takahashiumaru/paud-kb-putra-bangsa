@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PAUD KB Putra Bangsa — Education Is Essential</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===================== RESET & BASE ===================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --teal:       #5BBFAD;
+      --teal-light: #A8DEDD;
+      --teal-pale:  #E5F5F4;
+      --peach:      #F4A98A;
+      --peach-light:#FDE3D6;
+      --orange:     #F4845F;
+      --orange-star:#F7A233;
+      --bg:         #F8F9F8;
+      --white:      #FFFFFF;
+      --gray-100:   #F2F2F2;
+      --gray-200:   #E0E0E0;
+      --gray-400:   #9E9E9E;
+      --gray-700:   #555555;
+      --dark:       #1F1F1F;
+      --font-hand:  'Caveat', cursive;
+      --font-body:  'Poppins', sans-serif;
+      --max-w:      1240px;
+      --radius-xl:  24px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--dark);
+      overflow-x: hidden;
+    }
+
+    img { display: block; max-width: 100%; }
+    a   { text-decoration: none; color: inherit; }
+
+    /* ===================== HEADER ===================== */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(248,249,248,0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--gray-200);
+    }
+
+    .nav-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 18px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    /* Logo */
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+    .logo-icon {
+      width: 46px;
+      height: 46px;
+    }
+    .logo-text {
+      font-family: var(--font-hand);
+      font-size: 1.3rem;
+      font-weight: 700;
+      line-height: 1.1;
+      color: var(--dark);
+      letter-spacing: 0.02em;
+    }
+
+    /* Nav links */
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gray-700);
+      transition: color .2s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--teal);
+      border-radius: 2px;
+      transition: width .25s;
+    }
+    .nav-links a:hover { color: var(--teal); }
+    .nav-links a:hover::after { width: 100%; }
+
+    /* Inscription button */
+    .btn-inscription {
+      background: var(--teal);
+      color: var(--white);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 12px 26px;
+      border-radius: 8px;
+      transition: background .2s, transform .2s, box-shadow .2s;
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+    .btn-inscription:hover {
+      background: #479e8e;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(91,191,173,0.35);
+    }
+
+    /* Hamburger (mobile) */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block;
+      width: 26px;
+      height: 2.5px;
+      background: var(--dark);
+      border-radius: 2px;
+      transition: all .3s;
+    }
+
+    /* ===================== HERO ===================== */
+    .hero {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 64px 32px 48px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: center;
+    }
+
+    /* --- Collage Column --- */
+    .collage {
+      position: relative;
+      height: 480px;
+    }
+
+    /* Decorative background shapes */
+    .deco-peach-rect {
+      position: absolute;
+      width: 220px;
+      height: 320px;
+      background: var(--peach-light);
+      border-radius: 18px;
+      top: 60px;
+      left: 20px;
+      z-index: 0;
+    }
+    .deco-teal-blob {
+      position: absolute;
+      top: -10px;
+      left: 120px;
+      z-index: 0;
+    }
+
+    /* Photos */
+    .photo-main {
+      position: absolute;
+      z-index: 2;
+      width: 230px;
+      height: 310px;
+      object-fit: cover;
+      border-radius: 14px;
+      top: 30px;
+      left: 10px;
+      box-shadow: 4px 6px 20px rgba(0,0,0,0.12);
+    }
+    .photo-secondary {
+      position: absolute;
+      z-index: 3;
+      width: 200px;
+      height: 260px;
+      object-fit: cover;
+      border-radius: 14px;
+      top: 100px;
+      left: 200px;
+      box-shadow: 4px 6px 20px rgba(0,0,0,0.12);
+    }
+    .deco-teal-outline {
+      position: absolute;
+      z-index: 1;
+      width: 180px;
+      height: 280px;
+      border: 3px solid var(--teal);
+      border-radius: 14px;
+      top: 140px;
+      left: 210px;
+    }
+
+    /* --- Text Column --- */
+    .hero-text { position: relative; }
+
+    /* Badge */
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--teal-pale);
+      color: var(--teal);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 50px;
+      margin-bottom: 16px;
+      border: 1px solid rgba(91,191,173,0.3);
+    }
+
+    .hero-h1 {
+      font-family: var(--font-hand);
+      font-size: clamp(2.6rem, 4.5vw, 3.8rem);
+      font-weight: 700;
+      line-height: 1.08;
+      color: var(--dark);
+      margin-bottom: 20px;
+      letter-spacing: 0.01em;
+    }
+    .hero-h1 span { color: var(--teal); }
+
+    .hero-p {
+      font-size: 1rem;
+      line-height: 1.85;
+      color: var(--gray-700);
+      margin-bottom: 32px;
+      max-width: 460px;
+      font-weight: 400;
+    }
+
+    /* Stats */
+    .hero-stats {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      margin-bottom: 32px;
+      padding: 20px 24px;
+      background: var(--white);
+      border-radius: 16px;
+      border: 1px solid var(--gray-200);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+      max-width: 400px;
+    }
+    .hero-stat { text-align: center; flex: 1; }
+    .hero-stat strong {
+      display: block;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--teal);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .hero-stat span {
+      font-size: 0.72rem;
+      color: var(--gray-400);
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .hero-stat-divider {
+      width: 1px;
+      height: 36px;
+      background: var(--gray-200);
+      flex-shrink: 0;
+    }
+
+    /* CTA Buttons */
+    .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn-primary-hero {
+      background: var(--teal);
+      color: var(--white);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      padding: 14px 28px;
+      border-radius: 10px;
+      transition: background .2s, transform .2s, box-shadow .2s;
+      white-space: nowrap;
+    }
+    .btn-primary-hero:hover {
+      background: #479e8e;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(91,191,173,0.35);
+    }
+    .btn-secondary-hero {
+      background: transparent;
+      color: var(--dark);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      padding: 14px 28px;
+      border-radius: 10px;
+      border: 1.5px solid var(--gray-200);
+      transition: border-color .2s, background .2s, transform .2s;
+      white-space: nowrap;
+    }
+    .btn-secondary-hero:hover {
+      border-color: var(--teal);
+      background: var(--teal-pale);
+      transform: translateY(-2px);
+    }
+
+    /* Decorative elements — text column */
+    .deco-star {
+      position: absolute;
+      top: -16px;
+      right: 30px;
+      animation: spin-star 8s linear infinite;
+    }
+    @keyframes spin-star {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+
+    .deco-rainbow {
+      position: absolute;
+      bottom: -20px;
+      right: 80px;
+    }
+    .deco-wave {
+      position: absolute;
+      bottom: -10px;
+      right: -20px;
+    }
+
+    /* ===================== TEAL STRIP (bottom bg) ===================== */
+    .teal-strip {
+      background: var(--teal-light);
+      height: 220px;
+      margin-top: -100px;
+      position: relative;
+      z-index: 0;
+    }
+
+    /* ===================== CARDS SECTION ===================== */
+    .cards-section {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 32px 80px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      position: relative;
+      z-index: 1;
+      margin-top: -160px;
+    }
+
+    .card {
+      background: var(--white);
+      border-radius: var(--radius-xl);
+      padding: 32px 28px;
+      display: flex;
+      align-items: flex-start;
+      gap: 22px;
+      /* Hand-drawn border using SVG filter + border trick */
+      border: 2px solid transparent;
+      position: relative;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+      transition: transform .25s, box-shadow .25s;
+      overflow: hidden;
+    }
+    .card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: var(--radius-xl);
+      border: 2.5px solid rgba(30,30,30,0.55);
+      /* Rough/sketchy look via filter */
+      filter: url(#roughen);
+      pointer-events: none;
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.10);
+    }
+
+    .card-img-wrap {
+      flex-shrink: 0;
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 3px solid var(--peach-light);
+    }
+    .card-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .card-body {}
+    .card-title {
+      font-family: var(--font-hand);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 10px;
+      line-height: 1.1;
+    }
+    .card-p {
+      font-size: 0.82rem;
+      line-height: 1.75;
+      color: var(--gray-700);
+    }
+
+    /* SVG filter for rough border */
+    .svg-filters { position: absolute; width: 0; height: 0; }
+
+    /* ===================== WHATSAPP FAB ===================== */
+    .wa-fab {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 999;
+      width: 58px;
+      height: 58px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 24px rgba(37,211,102,0.45);
+      transition: transform .25s, box-shadow .25s;
+      cursor: pointer;
+    }
+    .wa-fab:hover {
+      transform: scale(1.12);
+      box-shadow: 0 10px 32px rgba(37,211,102,0.55);
+    }
+    .wa-fab svg { width: 30px; height: 30px; fill: white; }
+
+    /* ===================== SECTION PAGES ===================== */
+    .page-section {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 80px 32px;
+    }
+    .section-title {
+      font-family: var(--font-hand);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 12px;
+      letter-spacing: 0.01em;
+    }
+    .section-title span { color: var(--teal); }
+    .section-subtitle {
+      font-size: 0.9rem;
+      color: var(--gray-700);
+      line-height: 1.8;
+      margin-bottom: 48px;
+      max-width: 560px;
+    }
+    /* Kegiatan grid */
+    .kegiatan-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .kegiatan-card {
+      background: var(--white);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+      transition: transform .25s, box-shadow .25s;
+    }
+    .kegiatan-card:hover { transform: translateY(-6px); box-shadow: 0 12px 32px rgba(0,0,0,0.12); }
+    .kegiatan-card img { width: 100%; height: 180px; object-fit: cover; }
+    .kegiatan-card-body { padding: 20px; }
+    .kegiatan-card-body h3 { font-family: var(--font-hand); font-size: 1.3rem; font-weight: 700; margin-bottom: 8px; color: var(--dark); }
+    .kegiatan-card-body p  { font-size: 0.82rem; line-height: 1.75; color: var(--gray-700); }
+    .kegiatan-tag {
+      display: inline-block;
+      background: var(--teal-pale);
+      color: var(--teal);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 50px;
+      margin-bottom: 10px;
+    }
+    /* Events */
+    .events-list { display: flex; flex-direction: column; gap: 20px; }
+    .event-item {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 24px 28px;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+      transition: transform .25s, box-shadow .25s;
+    }
+    .event-item:hover { transform: translateX(6px); box-shadow: 0 8px 28px rgba(0,0,0,0.10); }
+    .event-date {
+      flex-shrink: 0;
+      background: var(--teal);
+      color: var(--white);
+      border-radius: 12px;
+      width: 72px;
+      height: 72px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      line-height: 1.1;
+    }
+    .event-date .day { font-size: 1.6rem; }
+    .event-date .month { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; }
+    .event-info h3 { font-family: var(--font-hand); font-size: 1.2rem; font-weight: 700; margin-bottom: 6px; }
+    .event-info p { font-size: 0.82rem; color: var(--gray-700); line-height: 1.6; }
+    .event-badge {
+      margin-left: auto;
+      flex-shrink: 0;
+      background: var(--peach-light);
+      color: var(--orange);
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 50px;
+    }
+    /* Contacts */
+    .contacts-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+    .contact-form { display: flex; flex-direction: column; gap: 16px; }
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 14px 18px;
+      border: 1.5px solid var(--gray-200);
+      border-radius: 12px;
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      color: var(--dark);
+      background: var(--white);
+      outline: none;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: var(--teal);
+      box-shadow: 0 0 0 4px rgba(91,191,173,0.12);
+    }
+    .contact-form textarea { resize: vertical; min-height: 130px; }
+    .btn-submit {
+      background: var(--teal);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 14px 28px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background .2s, transform .2s, box-shadow .2s;
+    }
+    .btn-submit:hover {
+      background: #479e8e;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(91,191,173,0.35);
+    }
+    .contact-info { display: flex; flex-direction: column; gap: 20px; }
+    .contact-info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      background: var(--white);
+      border-radius: 14px;
+      padding: 20px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+    }
+    .contact-icon {
+      flex-shrink: 0;
+      width: 44px; height: 44px;
+      background: var(--teal-pale);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .contact-icon svg { width: 22px; height: 22px; stroke: var(--teal); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .contact-info-item h4 { font-weight: 600; font-size: 0.88rem; margin-bottom: 4px; }
+    .contact-info-item p  { font-size: 0.82rem; color: var(--gray-700); line-height: 1.6; }
+    .divider-strip {
+      background: var(--teal-pale);
+      height: 6px;
+      border-radius: 3px;
+      margin: 0 32px;
+    }
+
+
+    /* ===================== FOOTER ===================== */
+    footer {
+      background: var(--teal-pale);
+      text-align: center;
+      padding: 24px 32px;
+      font-size: 0.78rem;
+      color: var(--gray-400);
+      letter-spacing: 0.04em;
+    }
+
+    /* ===================== ANIMATIONS ===================== */
+    @keyframes fade-up {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .hero-text  { animation: fade-up .7s ease both; }
+    .collage    { animation: fade-up .7s .15s ease both; }
+    .card       { animation: fade-up .6s ease both; }
+    .card:nth-child(2) { animation-delay: .15s; }
+
+    /* ====================================================
+       RESPONSIVE — Tablet (≤900px) & Mobile (≤480px)
+    ==================================================== */
+
+    /* ---------- Tablet ---------- */
+    @media (max-width: 900px) {
+      /* Hero */
+      .hero {
+        grid-template-columns: 1fr;
+        padding: 40px 24px 32px;
+        gap: 32px;
+      }
+      .collage { height: 320px; }
+      .photo-main  { width: 170px; height: 230px; }
+      .photo-secondary { width: 150px; height: 190px; left: 150px; top: 70px; }
+      .deco-teal-outline { left: 160px; top: 100px; width: 140px; height: 210px; }
+      .hero-stats  { max-width: 100%; }
+
+      /* Cards */
+      .cards-section { grid-template-columns: 1fr; margin-top: -80px; }
+      .teal-strip { height: 160px; }
+
+      /* Sections */
+      .kegiatan-grid   { grid-template-columns: 1fr 1fr; }
+      .contacts-grid   { grid-template-columns: 1fr; }
+    }
+
+    /* ---------- Mobile (≤680px) ---------- */
+    @media (max-width: 680px) {
+      /* Nav */
+      .nav-links, .btn-inscription { display: none; }
+      .hamburger  { display: flex; }
+      .nav-inner  { padding: 16px 20px; }
+
+      /* Hero */
+      .hero { padding: 28px 20px 24px; gap: 28px; }
+      .collage { height: 280px; }
+      .photo-main  { width: 148px; height: 200px; }
+      .photo-secondary { width: 130px; height: 170px; left: 130px; top: 60px; }
+      .deco-teal-outline { left: 138px; top: 88px; width: 120px; height: 185px; }
+      .hero-h1 { font-size: 2.2rem; }
+      .hero-p  { font-size: 0.92rem; }
+      .hero-stats {
+        gap: 14px;
+        padding: 16px 18px;
+        flex-wrap: nowrap;
+      }
+      .hero-stat strong { font-size: 1.2rem; }
+      .hero-stat span   { font-size: 0.65rem; }
+      .hero-cta { flex-direction: column; }
+      .btn-primary-hero, .btn-secondary-hero {
+        width: 100%;
+        text-align: center;
+      }
+
+      /* Cards */
+      .cards-section { padding: 0 20px 60px; margin-top: -60px; }
+
+      /* Sections */
+      .kegiatan-grid { grid-template-columns: 1fr; }
+      .page-section  { padding: 56px 20px; }
+      .event-item    { gap: 16px; padding: 18px 20px; }
+      .event-badge   { display: none; }
+      .divider-strip { margin: 0 20px; }
+    }
+
+    /* ---------- Small Mobile (≤400px) ---------- */
+    @media (max-width: 400px) {
+      .hero { padding: 20px 16px; }
+      .collage { height: 240px; }
+      .photo-main  { width: 124px; height: 168px; }
+      .photo-secondary { width: 108px; height: 140px; left: 110px; top: 50px; }
+      .deco-teal-outline { left: 116px; top: 74px; width: 100px; height: 155px; }
+      .hero-h1 { font-size: 1.9rem; }
+      .hero-stats  { gap: 10px; padding: 14px 14px; }
+      .hero-stat strong { font-size: 1.1rem; }
+      .hero-stat-divider { height: 28px; }
+      .page-section { padding: 44px 16px; }
+      .card { padding: 24px 18px; }
+      .card-img-wrap { width: 76px; height: 76px; }
+    }
+
+    /* Mobile nav open state */
+    .mobile-nav {
+      display: none;
+      flex-direction: column;
+      background: var(--white);
+      border-top: 1px solid var(--gray-200);
+      padding: 20px 24px;
+      gap: 16px;
+    }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a {
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gray-700);
+      padding: 8px 0;
+      border-bottom: 1px solid var(--gray-200);
+    }
+    .mobile-nav .btn-inscription {
+      display: inline-block;
+      text-align: center;
+      margin-top: 8px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- SVG filter for rough/hand-drawn border -->
+<svg class="svg-filters" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="roughen" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.065" numOctaves="3" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="3" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </defs>
+</svg>
+
+<!-- ==================== HEADER ==================== -->
+<header>
+  <nav class="nav-inner">
+    <!-- Logo -->
+    <a href="#" class="logo">
+      <svg class="logo-icon" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Palette -->
+        <ellipse cx="22" cy="24" rx="17" ry="14" fill="#FFFFFF" stroke="#1F1F1F" stroke-width="1.8"/>
+        <!-- Paint blobs on palette -->
+        <circle cx="14" cy="20" r="3.2" fill="#F4A98A"/>
+        <circle cx="22" cy="16" r="3.2" fill="#5BBFAD"/>
+        <circle cx="30" cy="20" r="3.2" fill="#F7A233"/>
+        <circle cx="28" cy="28" r="3.2" fill="#F4845F"/>
+        <circle cx="16" cy="29" r="3.2" fill="#A8DEDD"/>
+        <!-- Thumb hole -->
+        <ellipse cx="30" cy="30" rx="4" ry="3" fill="#F8F9F8" stroke="#1F1F1F" stroke-width="1.5"/>
+        <!-- Brush -->
+        <rect x="30" y="6" width="5" height="18" rx="2.5" fill="#E0C4A0" stroke="#1F1F1F" stroke-width="1.2" transform="rotate(30 30 6)"/>
+        <rect x="31.5" y="18" width="3" height="6" rx="1" fill="#5BBFAD" transform="rotate(30 30 6)"/>
+      </svg>
+      <span class="logo-text">PAUD KB<br>PUTRA Bangsa</span>
+    </a>
+
+    <!-- Nav links (desktop) -->
+    <ul class="nav-links">
+      <li><a href="#home">Menu</a></li>
+      <li><a href="#kegiatan">Kegiatan</a></li>
+      <li><a href="#events">Events</a></li>
+      <li><a href="#contacts">Contacts</a></li>
+    </ul>
+
+    <!-- CTA -->
+    <a href="#" class="btn-inscription">Inscription</a>
+
+    <!-- Hamburger -->
+    <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- Mobile nav -->
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#home" onclick="toggleMenu()">Menu</a>
+    <a href="#kegiatan" onclick="toggleMenu()">Kegiatan</a>
+    <a href="#events" onclick="toggleMenu()">Events</a>
+    <a href="#contacts" onclick="toggleMenu()">Contacts</a>
+    <a href="#" class="btn-inscription" onclick="toggleMenu()">Inscription</a>
+  </div>
+</header>
+
+<!-- ==================== HERO ==================== -->
+<main id="home">
+  <section class="hero" aria-label="Hero section">
+
+    <!-- Left: Collage -->
+    <div class="collage" aria-hidden="true">
+      <!-- bg shapes -->
+      <div class="deco-peach-rect"></div>
+
+      <!-- teal blob SVG -->
+      <svg class="deco-teal-blob" width="110" height="110" viewBox="0 0 110 110" fill="none">
+        <path d="M60 10 C90 5, 110 30, 100 60 C90 90, 60 105, 35 95 C10 85, 0 55, 15 30 C30 5, 30 15, 60 10Z" fill="#5BBFAD" opacity="0.75"/>
+      </svg>
+
+      <!-- Photos -->
+      <img class="photo-main"
+           src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&q=85"
+           alt="Teacher guiding young students in classroom" loading="lazy"
+           onerror="this.src='https://images.unsplash.com/photo-1588072432836-e10032774350?w=600&q=85'"/>
+      <img class="photo-secondary"
+           src="https://images.unsplash.com/photo-1588072432836-e10032774350?w=600&q=85"
+           alt="Happy children studying and learning together" loading="lazy"
+           onerror="this.src='https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=600&q=85'"/>
+
+      <!-- teal outline frame -->
+      <div class="deco-teal-outline"></div>
+    </div>
+
+    <!-- Right: Text -->
+    <div class="hero-text">
+      <!-- Star deco -->
+      <svg class="deco-star" width="52" height="52" viewBox="0 0 52 52" fill="none">
+        <polygon points="26,2 31,20 50,20 36,31 41,50 26,39 11,50 16,31 2,20 21,20"
+                 fill="#F7A233"/>
+      </svg>
+
+      <span class="hero-badge">🎓 PAUD KB Putra Bangsa</span>
+      <h1 class="hero-h1">Pendidikan Adalah<br><span>Pondasi Masa Depan</span></h1>
+      <p class="hero-p">
+        Setiap anak adalah bintang yang menunggu untuk bersinar. Kami hadir untuk
+        menyalakan semangat belajar mereka melalui pendekatan yang hangat, kreatif,
+        dan holistik — membangun karakter kuat sejak usia dini.
+      </p>
+
+      <!-- Stats row -->
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <strong>12+</strong>
+          <span>Tahun Berdiri</span>
+        </div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat">
+          <strong>350+</strong>
+          <span>Alumni Sukses</span>
+        </div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat">
+          <strong>18</strong>
+          <span>Pengajar Terlatih</span>
+        </div>
+      </div>
+
+      <!-- CTA buttons -->
+      <div class="hero-cta">
+        <a href="#contacts" class="btn-primary-hero">Daftar Sekarang</a>
+        <a href="#kegiatan" class="btn-secondary-hero">Lihat Program</a>
+      </div>
+
+      <!-- Rainbow deco -->
+      <svg class="deco-rainbow" width="90" height="60" viewBox="0 0 90 60" fill="none">
+        <path d="M5 55 Q5 5, 85 55" stroke="#5BBFAD" stroke-width="8" fill="none" stroke-linecap="round"/>
+        <path d="M15 55 Q15 18, 75 55" stroke="#A8DEDD" stroke-width="7" fill="none" stroke-linecap="round"/>
+      </svg>
+
+      <!-- Wave deco -->
+      <svg class="deco-wave" width="130" height="30" viewBox="0 0 130 30" fill="none">
+        <path d="M0 15 C20 0, 40 30, 60 15 C80 0, 100 30, 120 15 C130 8, 130 8, 130 8"
+              stroke="#A8DEDD" stroke-width="4" stroke-linecap="round" fill="none"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- Teal background strip -->
+  <div class="teal-strip" aria-hidden="true"></div>
+
+  <!-- ==================== CARDS ==================== -->
+  <section class="cards-section" aria-label="Information cards">
+
+    <!-- Card 1: Study Methods -->
+    <article class="card">
+      <div class="card-img-wrap">
+        <img src="https://images.unsplash.com/photo-1605464315542-bda3e2f4e605?w=400&q=85"
+             alt="Children in art class" loading="lazy"
+             onerror="this.src='https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=400&q=85'"/>
+      </div>
+      <div class="card-body">
+        <h2 class="card-title">Study Methods</h2>
+        <p class="card-p">
+          Metode belajar kami menggabungkan pendekatan bermain aktif, eksplorasi sensorik, dan pembelajaran
+          berbasis proyek. Setiap aktivitas dirancang untuk merangsang kreativitas dan kemampuan berpikir kritis
+          anak sejak dini dalam suasana yang menyenangkan.
+        </p>
+      </div>
+    </article>
+
+    <!-- Card 2: Study Program 2026 -->
+    <article class="card">
+      <div class="card-img-wrap">
+        <img src="https://images.unsplash.com/photo-1596464716127-f2a82984de30?w=400&q=85"
+             alt="Teacher with students" loading="lazy"
+             onerror="this.src='https://images.unsplash.com/photo-1544717305-2782549b5136?w=400&q=85'"/>
+      </div>
+      <div class="card-body">
+        <h2 class="card-title">Program Belajar 2026</h2>
+        <p class="card-p">
+          Program kurikulum 2026 kami telah diperbarui dengan pendekatan holistik yang berfokus pada
+          kecerdasan sosial-emosional, literasi digital dasar, dan pengembangan karakter. Bersama guru
+          berpengalaman, anak tumbuh percaya diri dan siap menyambut masa depan.
+        </p>
+      </div>
+    </article>
+
+  </section>
+
+  <!-- ==================== KEGIATAN ==================== -->
+  <div class="divider-strip" aria-hidden="true"></div>
+  <section id="kegiatan" class="page-section" aria-label="Kegiatan">
+    <p class="kegiatan-tag">Program Kami</p>
+    <h2 class="section-title">Kegiatan <span>Unggulan</span></h2>
+    <p class="section-subtitle">Berbagai kegiatan seru dan edukatif dirancang khusus untuk mendukung tumbuh kembang si kecil secara menyeluruh — fisik, kognitif, dan sosial-emosional.</p>
+    <div class="kegiatan-grid">
+      <div class="kegiatan-card">
+        <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=600&q=80" alt="Seni dan Kreativitas" loading="lazy"/>
+        <div class="kegiatan-card-body">
+          <span class="kegiatan-tag">Harian</span>
+          <h3>Seni & Kreativitas</h3>
+          <p>Melalui melukis, mewarnai, dan kerajinan tangan, anak-anak bebas berekspresi dan mengembangkan motorik halus mereka.</p>
+        </div>
+      </div>
+      <div class="kegiatan-card">
+        <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=600&q=80" alt="Bermain Aktif" loading="lazy"/>
+        <div class="kegiatan-card-body">
+          <span class="kegiatan-tag">Harian</span>
+          <h3>Bermain Aktif</h3>
+          <p>Area bermain indoor dan outdoor yang aman dan menstimulasi perkembangan motorik kasar serta kemampuan sosial anak.</p>
+        </div>
+      </div>
+      <div class="kegiatan-card">
+        <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?w=600&q=80" alt="Bercerita & Literasi" loading="lazy"/>
+        <div class="kegiatan-card-body">
+          <span class="kegiatan-tag">Mingguan</span>
+          <h3>Bercerita & Literasi</h3>
+          <p>Sesi membaca bersama dan mendongeng membangun kecintaan anak pada buku serta memperkaya kosakata sejak dini.</p>
+        </div>
+      </div>
+      <div class="kegiatan-card">
+        <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=600&q=80" alt="Musik & Gerak" loading="lazy"/>
+        <div class="kegiatan-card-body">
+          <span class="kegiatan-tag">Mingguan</span>
+          <h3>Musik & Gerak</h3>
+          <p>Bernyanyi, menari, dan bermain alat musik sederhana melatih ritme, koordinasi, serta kepercayaan diri anak.</p>
+        </div>
+      </div>
+      <div class="kegiatan-card">
+        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=80" alt="Sains Mini" loading="lazy"/>
+        <div class="kegiatan-card-body">
+          <span class="kegiatan-tag">Mingguan</span>
+          <h3>Sains Mini</h3>
+          <p>Eksperimen sederhana dan eksplorasi alam menumbuhkan rasa ingin tahu ilmiah dan kemampuan berpikir logis.</p>
+        </div>
+      </div>
+      <div class="kegiatan-card">
+        <img src="https://images.unsplash.com/photo-1491841573634-28140fc7ced7?w=600&q=80" alt="Memasak Bersama" loading="lazy"/>
+        <div class="kegiatan-card-body">
+          <span class="kegiatan-tag">Bulanan</span>
+          <h3>Memasak Bersama</h3>
+          <p>Kegiatan memasak sederhana melatih kemandirian, kesabaran, dan kreativitas anak sambil mengenalkan gizi sehat.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== EVENTS ==================== -->
+  <div class="divider-strip" aria-hidden="true"></div>
+  <section id="events" class="page-section" style="background: var(--teal-pale); max-width:100%; padding: 80px 0;" aria-label="Events">
+    <div style="max-width:var(--max-w); margin:0 auto; padding:0 32px;">
+      <span class="kegiatan-tag">Jadwal</span>
+      <h2 class="section-title">Events <span>Mendatang</span></h2>
+      <p class="section-subtitle">Jangan lewatkan berbagai acara spesial yang kami siapkan untuk anak dan keluarga.</p>
+      <div class="events-list">
+        <div class="event-item">
+          <div class="event-date"><span class="day">05</span><span class="month">Mei</span></div>
+          <div class="event-info">
+            <h3>Hari Pendidikan Nasional</h3>
+            <p>Peringatan Hardiknas dengan pentas seni, lomba mewarnai, dan parade kostum pahlawan oleh seluruh murid.</p>
+          </div>
+          <span class="event-badge">Semua Usia</span>
+        </div>
+        <div class="event-item">
+          <div class="event-date"><span class="day">17</span><span class="month">Mei</span></div>
+          <div class="event-info">
+            <h3>Parent-Teacher Day</h3>
+            <p>Sesi konsultasi dan diskusi perkembangan anak bersama wali kelas. Daftarkan jadwal konsultasi Anda.</p>
+          </div>
+          <span class="event-badge">Orang Tua</span>
+        </div>
+        <div class="event-item">
+          <div class="event-date"><span class="day">01</span><span class="month">Jun</span></div>
+          <div class="event-info">
+            <h3>Hari Anak Sedunia</h3>
+            <p>Festival bermain outdoor, bazar makanan sehat, dan pertunjukan boneka untuk merayakan hari istimewa anak.</p>
+          </div>
+          <span class="event-badge">Semua Usia</span>
+        </div>
+        <div class="event-item">
+          <div class="event-date"><span class="day">21</span><span class="month">Jun</span></div>
+          <div class="event-info">
+            <h3>Wisuda Angkatan 2025/2026</h3>
+            <p>Upacara kelulusan dan perayaan pencapaian para bintang kecil PAUD KB Putra Bangsa bersama keluarga.</p>
+          </div>
+          <span class="event-badge">Undangan</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CONTACTS ==================== -->
+  <div class="divider-strip" aria-hidden="true"></div>
+  <section id="contacts" class="page-section" aria-label="Contacts">
+    <span class="kegiatan-tag">Hubungi Kami</span>
+    <h2 class="section-title">Kontak & <span>Lokasi</span></h2>
+    <p class="section-subtitle">Ada pertanyaan atau ingin mendaftarkan si kecil? Hubungi kami — kami siap membantu dengan hangat.</p>
+    <div class="contacts-grid">
+      <!-- Form -->
+      <form class="contact-form" onsubmit="handleContact(event)">
+        <input type="text" id="contact-name" placeholder="Nama Lengkap" required/>
+        <input type="email" id="contact-email" placeholder="Alamat Email" required/>
+        <input type="tel" id="contact-phone" placeholder="Nomor WhatsApp"/>
+        <textarea id="contact-msg" placeholder="Pesan Anda..."></textarea>
+        <button type="submit" class="btn-submit">Kirim Pesan</button>
+      </form>
+      <!-- Info -->
+      <div class="contact-info">
+        <div class="contact-info-item">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <h4>Alamat</h4>
+            <p>Jl. Pendidikan No. 1, Kelurahan Harapan Bangsa,<br>Kota Sejahtera, Indonesia</p>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.82 19.79 19.79 0 01.12 1.18 2 2 0 012.11 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.09a16 16 0 006 6l.45-.45a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          </div>
+          <div>
+            <h4>Telepon / WhatsApp</h4>
+            <p>+62 812-3456-7890</p>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div>
+            <h4>Email</h4>
+            <p>info@paudkbputraBangsa.sch.id</p>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div>
+            <h4>Jam Operasional</h4>
+            <p>Senin – Jumat: 07.00 – 14.00 WIB<br>Sabtu: 07.00 – 11.00 WIB</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ==================== FOOTER ==================== -->
+<footer>
+  <p>&copy; 2026 PAUD KB Putra Bangsa. Hak cipta dilindungi. Dibuat dengan ❤️ untuk generasi penerus bangsa.</p>
+</footer>
+
+<!-- ==================== WHATSAPP FAB ==================== -->
+<a class="wa-fab" href="https://wa.me/" target="_blank" rel="noopener" aria-label="Chat via WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<script>
+  function toggleMenu() {
+    const nav = document.getElementById('mobileNav');
+    nav.classList.toggle('open');
+  }
+  function handleContact(e) {
+    e.preventDefault();
+    alert('Pesan Anda telah terkirim! Kami akan segera menghubungi Anda.');
+    e.target.reset();
+  }
+</script>
+</body>
+</html>
